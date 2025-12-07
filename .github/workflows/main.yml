@@ -1,0 +1,16 @@
+name: Workflow PR Only
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pr_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Message PR
+        run: echo "Ce workflow se déclenche UNIQUEMENT lors d'une Pull Request !"
+      - name: Télécharger le code
+        uses: actions/checkout@v3
+      - name: Lister les fichiers
+        run: ls -l
